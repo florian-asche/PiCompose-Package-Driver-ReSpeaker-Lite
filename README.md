@@ -2,6 +2,8 @@
 
 Package `picompose-driver-respeaker-lite` for the [PiCompose APT repository](https://github.com/florian-asche/PiCompose-Repository). The ReSpeaker Lite needs no kernel driver. It is the stage `02-stage-audiodriver-respeaker_lite` of the [PiCompose](https://github.com/florian-asche/PiCompose) image as a package.
 
+What differs from how the stage does it is documented in [diff.md](diff.md) (in German).
+
 ## Contents
 
 | Part | Files |
