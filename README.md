@@ -1,5 +1,7 @@
 # PiCompose-Package-Driver-ReSpeaker-Lite
 
+[![Version](https://github.com/florian-asche/PiCompose-Package-Driver-ReSpeaker-Lite/actions/workflows/version.yml/badge.svg?branch=main)](https://github.com/florian-asche/PiCompose-Package-Driver-ReSpeaker-Lite/actions/workflows/version.yml) [![GitHub Release Version](https://img.shields.io/github/v/release/florian-asche/PiCompose-Package-Driver-ReSpeaker-Lite?label=version)](https://github.com/florian-asche/PiCompose-Package-Driver-ReSpeaker-Lite/releases) [![GitHub License](https://img.shields.io/github/license/florian-asche/PiCompose-Package-Driver-ReSpeaker-Lite)](https://github.com/florian-asche/PiCompose-Package-Driver-ReSpeaker-Lite/blob/main/LICENSE)
+
 Package `picompose-driver-respeaker-lite` for the [PiCompose APT repository](https://github.com/florian-asche/PiCompose-Repository). The ReSpeaker Lite needs no kernel driver. It is the stage `02-stage-audiodriver-respeaker_lite` of the [PiCompose](https://github.com/florian-asche/PiCompose) image as a package.
 
 What differs from how the stage does it is documented in [diff.md](diff.md) (in German).
