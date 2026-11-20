@@ -11,15 +11,14 @@ What differs from how the stage does it is documented in [diff.md](diff.md) (in 
 | Part | Files |
 | --- | --- |
 | Keep the card awake | `/usr/bin/keep-audio-alive.sh`, `keep-audio-alive.service` (enabled, not started at install) |
-| Volume setup | `/usr/bin/configure_audio.sh`, `configure_audio.service` (enabled, not started at install) |
 
-`keep-audio-alive.service` waits for PipeWire and plays silence with `sox` all the time, so the sound card does not go to sleep. `configure_audio.service` sets the volume of the default sink to 100 % at start and stores the ALSA state.
+`keep-audio-alive.service` waits for PipeWire and plays silence with `sox` all the time, so the sound card does not go to sleep. The package does not set the volume. The default volume of a sound card without a stored state comes from `picompose-core` (`device.routes.default-sink-volume` in `51-default-volume.conf`), WirePlumber stores later changes in `~/.local/state/wireplumber`.
 
-The files are the ones of the image without changes, and both services use the user with the ID 1000 (`/run/user/1000`), as the image does.
+The files are the ones of the image without changes, and the service uses the user with the ID 1000 (`/run/user/1000`), as the image does.
 
 ## One driver per system
 
-All `picompose-driver-*` packages provide `picompose-audio-driver` and conflict with it. Installing one removes another, because a system has one audio device and all of them install `configure_audio.sh` and `configure_audio.service`.
+All `picompose-driver-*` packages provide `picompose-audio-driver` and conflict with it. Installing one removes another, because a system has one audio device.
 
 ## Versioning and changelog
 
