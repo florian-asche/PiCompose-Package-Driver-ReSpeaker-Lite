@@ -1,3 +1,9 @@
+picompose-driver-respeaker-lite (0.0.2) trixie; urgency=medium
+
+  * Remove configure_audio, the default volume comes from picompose-core (#2)
+
+ -- Florian Asche <github@florian-asche.de>  Fri, 20 Nov 2026 02:58:37 +0000
+
 picompose-driver-respeaker-lite (0.0.1) trixie; urgency=medium
 
   * Add CLAUDE.md with the working rules and the Raspberry Pi OS compatibility check
