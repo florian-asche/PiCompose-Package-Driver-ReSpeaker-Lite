@@ -1,3 +1,9 @@
+picompose-driver-respeaker-lite (0.0.3) trixie; urgency=medium
+
+  * Check for updates of the GitHub Actions daily (#3)
+
+ -- Florian Asche <github@florian-asche.de>  Fri, 20 Nov 2026 20:11:50 +0000
+
 picompose-driver-respeaker-lite (0.0.2) trixie; urgency=medium
 
   * Remove configure_audio, the default volume comes from picompose-core (#2)
