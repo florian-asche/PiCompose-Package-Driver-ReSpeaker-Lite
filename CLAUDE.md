@@ -37,5 +37,4 @@ The package has to work on the Raspberry Pi OS that the PiCompose images are bui
    - Defaults of the base system that the package relies on: the user `pi` with the UID 1000, systemd, PipeWire and WirePlumber, `cron`.
    Specific to this package:
    - `sox` with ALSA support and `pw-cli` (`pipewire-bin`) exist in the release, and the silence trick of `keep-audio-alive.sh` still works with its PipeWire version.
-   - PipeWire and WirePlumber, which the volume service uses (`wpctl`).
 3. **Write down the verdict**: which release, kernel and image definition you looked at, what you checked and how (commands), what you could not check (hardware), and what has to change if the base moves, for example to a new Debian release. If a change makes the package fit only a newer or only an older base than the images use, say so and ask the developer before going on.

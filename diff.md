@@ -6,14 +6,18 @@ Pflege: Jede Änderung, die eine Abweichung neu schafft, ändert oder beseitigt,
 
 ## Anders gelöst
 
-- Die Unit-Datei liegt in `/usr/lib/systemd/system/` statt in `/etc/systemd/system/`. Aktiviert wird sie durch `dh_installsystemd` im Paket (beim Installieren aktiviert, aber nicht gestartet) statt durch `systemctl enable` im Chroot der Stage. Der Inhalt der Unit ist unverändert. Das gilt für `configure_audio.service` und `keep-audio-alive.service`.
+- Die Unit-Datei liegt in `/usr/lib/systemd/system/` statt in `/etc/systemd/system/`. Aktiviert wird sie durch `dh_installsystemd` im Paket (beim Installieren aktiviert, aber nicht gestartet) statt durch `systemctl enable` im Chroot der Stage. Der Inhalt der Unit ist unverändert. Das gilt für `keep-audio-alive.service`.
+
+## Nicht im Paket
+
+- `configure_audio.sh` und `configure_audio.service` der Stage fehlen. Sie haben beim Start die Lautstärke der Standard-Senke per `wpctl` auf 100 % gesetzt und den ALSA-Zustand gespeichert. Den Standardwert für Karten ohne gespeicherten Zustand setzt jetzt `picompose-core` mit `device.routes.default-sink-volume = 1.0` in `/etc/wireplumber/wireplumber.conf.d/51-default-volume.conf`. Eine Karte mit bereits gespeichertem (falschem) Zustand behält diesen Wert, das Paket setzt ihn nicht mehr zurück.
+- Entsprechend gibt es kein `Depends` auf `wireplumber` und `alsa-utils` mehr.
 
 ## Zusätzlich im Paket
 
 - `Depends` auf `sox` (wie `01-keep-audio-alive/01-packages`) und zusätzlich auf `libsox-fmt-alsa` (für die ALSA-Ausgabe von `sox`) und `pipewire-bin` (`pw-cli`). Diese beiden stehen nicht in der Paketliste der Stage.
-- `Depends` auf `wireplumber` (`wpctl`) und `alsa-utils` (`amixer`, `alsactl`).
 - `Provides`, `Conflicts` und `Replaces` für `picompose-audio-driver`.
 
 ## Unverändert
 
-- `keep-audio-alive.sh`, `keep-audio-alive.service`, `configure_audio.sh` und `configure_audio.service` sind Byte für Byte die Dateien der Stage.
+- `keep-audio-alive.sh` und `keep-audio-alive.service` sind Byte für Byte die Dateien der Stage.
